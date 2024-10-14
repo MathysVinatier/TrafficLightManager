@@ -11,6 +11,7 @@ class CAR:
             self.w, self.h = (60, 40)
 
         self.x, self.y  = (position[0]+position[2]//2-self.w//2, position[1]+position[3]//2-self.h//2)
+        self.position = (self.x, self.y)
         self.direction  = direction
     
     def move(self):
@@ -22,6 +23,8 @@ class CAR:
             self.x -= 1
         elif self.direction == "right":
             self.x += 1
+        
+        self.position = (self.x, self.y)
     
     def draw(self, screen):
         pygame.draw.rect(screen, BLACK, (self.x, self.y, self.w, self.h))

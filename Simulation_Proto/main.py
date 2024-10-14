@@ -73,15 +73,24 @@ while running:
     for feu in feux:
         feu.draw(screen)
 
-    for feu, voiture in zip(feux, voitures):
-        print(f'{feu.direction}/{voiture.direction}={feu.direction == voiture.direction}')
-        if feu.direction == voiture.direction :
-            if feu.color == RED:
-                voiture.driving = False
+    for voiture in voitures:
+        for feu in feux:
+            if feu.direction == voiture.direction :
+                if feu.color == RED :
+                    print("red")
+                    if voiture.direction=="up" or voiture.direction=="down":
+                        print("up/down")
+                        print(f'{feu.position[1]}/{voiture.position[1]}={feu.position[1] == voiture.position[1]}')
+                        if feu.position[1] == voiture.position[1]:
+                            voiture.driving = False
+                    else :
+                        print("left/right")
+                        if feu.position[0] == voiture.position[0]:
+                            voiture.driving = False
 
-            if feu.color == GREEN:
-                voiture.driving = True
-                
+                if feu.color == GREEN:
+                    voiture.driving = True
+
         if voiture.driving :
             voiture.move()
 
