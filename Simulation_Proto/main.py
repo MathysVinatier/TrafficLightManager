@@ -64,7 +64,6 @@ while running:
                 if button.zone[0] <= mouse_pos[0] <= (button.zone[0]+button.zone[2]) and button.zone[1] <= mouse_pos[1] <= (button.zone[1]+button.zone[3]):
                     voitures.append(CAR(button.zone, button.direction))
                     car_number += 1
-
     draw_crossroad(screen)
 
     for button in buttons:
