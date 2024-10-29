@@ -12,7 +12,7 @@ def traffic_light_test():
         for step in range(1000): 
             traci.simulationStep()  #Avance la simulation d'un pas
 
-            last_traffic = proto.check_inductive_loops() 
+            last_traffic = proto.check_inductive_loops()
 
             if last_traffic != None:
                 if (last_traffic == "e1_0") or last_traffic == "e1_2" :
@@ -20,7 +20,7 @@ def traffic_light_test():
 
                 if (last_traffic == "e1_1") or last_traffic == "e1_4" :
                     traci.trafficlight.setRedYellowGreenState(proto.traffic_light_id, "rrrGGGrrrGGG")
-            time.sleep(0.01)
+            time.sleep(0.2)
     finally:
         traci.close()  
 
